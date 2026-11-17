@@ -1,0 +1,25 @@
+[package]
+name = "peer-lm"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "OpenAI-compatible local gateway over libp2p"
+
+[[bin]]
+name = "peer-lm"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+axum.workspace = true
+clap.workspace = true
+libp2p.workspace = true
+peer-lm-backend.workspace = true
+peer-lm-gateway.workspace = true
+peer-lm-mock-backend.workspace = true
+peer-lm-p2p.workspace = true
+serde.workspace = true
+serde_yaml.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true

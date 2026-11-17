@@ -1,0 +1,22 @@
+[package]
+name = "peer-lm-backend"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "HTTP client for local OpenAI-compatible engines"
+
+[dependencies]
+anyhow.workspace = true
+bytes.workspace = true
+futures.workspace = true
+reqwest.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+
+[dev-dependencies]
+peer-lm-mock-backend.workspace = true
+axum.workspace = true
+serde_json.workspace = true

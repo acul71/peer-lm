@@ -1,0 +1,20 @@
+# Force circuit-relay path (useful behind strict NAT or for CI smokes).
+# DCUtR may still upgrade to direct when possible.
+#
+#   peer-lm serve -c examples/config.relay.yaml
+
+gateway: "127.0.0.1:3012"
+listen: "/ip4/0.0.0.0/tcp/0"
+prefer_local: false
+identity: "./data/relay-client.key"
+
+allowlist:
+  - "REPLACE_WITH_COMPUTE_PEER_ID"
+
+connect:
+  mode: relay
+  dcutr: true
+  relays:
+    - "/ip4/<RELAY_HOST>/tcp/4444/p2p/<RELAY_PEER_ID>"
+  dial_peers:
+    - "REPLACE_WITH_COMPUTE_PEER_ID"

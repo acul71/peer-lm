@@ -1,0 +1,26 @@
+# GPU / compute node: expose Strata (or any OpenAI-compatible engine) to the mesh.
+# Connectivity: auto (mDNS → hole-punch/direct → relay).
+#
+#   peer-lm keygen --out ./data/compute.key   # note printed peer id for clients
+#   peer-lm serve -c examples/config.auto.compute.yaml
+
+gateway: "127.0.0.1:3011"
+listen: "/ip4/0.0.0.0/tcp/0"
+backend: "http://127.0.0.1:8080"
+prefer_local: true
+identity: "./data/compute.key"
+
+# Replace with your client peer id(s) for locked-down meshes; empty = allow all (dev).
+allowlist: []
+
+connect:
+  mode: auto
+  mdns_timeout_secs: 5
+  hole_punch_grace_secs: 15
+  dcutr: true
+  # Public relay (IONOS lab — replace if you run your own).
+  relays:
+    - "/ip4/<RELAY_HOST>/tcp/4444/p2p/<RELAY_PEER_ID>"
+  # Compute usually waits for inbound; leave dial_peers empty unless you also dial out.
+  dial_peers: []
+  mesh_namespace: peer-lm

@@ -1,0 +1,20 @@
+
+Jeff Geerling
+@geerlingguy
+·
+Feb 25
+LM Studio emailed me yesterday and invited me to test this — I've been using Wireguard and llama.cpp to run large models on my studio workstations, from anywhere.
+
+(I run a few *local* LLMs to help with MicroPython, debugging PTP, that sort of thing...)
+
+I'm attaching a video showing LM Studio running on my low-spec Mac mini at home, using a large model running on a Dell GB10 at the studio. Also tested it running through my Mac Studio at the studio.
+
+They use Tailscale on the backend, but it's separate from Tailscale (managed through LM Studio)—works well, but I still prefer llama.cpp since it's open source. The llama.cpp Web GUI makes it easy enough (for me) to use on the road via VPN, through a browser.
+
+I haven't really messed with LM Studio or vLLM before, but I can see the appeal, especially if you link LLMs to external tools (I don't, at least not at this time).
+
+
+############################
+
+Replicating this using libp2p as the connection solution
+

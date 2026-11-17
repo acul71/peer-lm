@@ -1,0 +1,14 @@
+# Minimal local demo with the embedded mock backend (no real LLM / no OOM).
+#
+#   peer-lm serve -c examples/config.mock.yaml
+#   curl http://127.0.0.1:3000/v1/chat/completions \
+#     -H 'content-type: application/json' \
+#     -d '{"model":"peer-lm-mock","messages":[{"role":"user","content":"hi"}]}'
+
+gateway: "127.0.0.1:3000"
+listen: "/ip4/127.0.0.1/tcp/0"
+embedded_mock: true
+prefer_local: true
+
+connect:
+  mode: lan

@@ -1,0 +1,60 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/peer-lm",
+    "crates/gateway",
+    "crates/p2p",
+    "crates/backend",
+    "crates/mock-backend",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/example/peer-lm"
+
+[workspace.dependencies]
+anyhow = "1"
+axum = { version = "0.8", features = ["macros"] }
+bytes = "1"
+futures = "0.3"
+libp2p = { version = "0.57", features = [
+    "tokio",
+    "tcp",
+    "quic",
+    "dns",
+    "noise",
+    "yamux",
+    "mdns",
+    "identify",
+    "macros",
+    "request-response",
+    "cbor",
+    "relay",
+    "dcutr",
+    "rendezvous",
+] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "stream", "rustls-tls"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde_yaml = "0.9"
+thiserror = "2"
+tokio = { version = "1", features = ["full"] }
+tokio-stream = "0.1"
+tokio-util = { version = "0.7", features = ["io"] }
+tower = { version = "0.5", features = ["util"] }
+tower-http = { version = "0.6", features = ["cors", "trace"] }
+http-body-util = "0.1"
+http = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+clap = { version = "4", features = ["derive", "env"] }
+uuid = { version = "1", features = ["v4"] }
+async-trait = "0.1"
+chrono = { version = "0.4", default-features = false, features = ["clock"] }
+
+peer-lm-backend = { path = "crates/backend" }
+peer-lm-gateway = { path = "crates/gateway" }
+peer-lm-mock-backend = { path = "crates/mock-backend" }
+peer-lm-p2p = { path = "crates/p2p" }

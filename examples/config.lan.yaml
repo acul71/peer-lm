@@ -1,0 +1,13 @@
+# Same-LAN only: mDNS discovery, no relay / hole punch.
+#
+#   peer-lm serve -c examples/config.lan.yaml --embedded-mock
+
+gateway: "127.0.0.1:3000"
+listen: "/ip4/0.0.0.0/tcp/0"
+embedded_mock: true
+prefer_local: true
+identity: "./data/lan.key"
+
+connect:
+  mode: lan
+  dial_peers: []
